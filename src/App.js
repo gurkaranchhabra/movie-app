@@ -37,35 +37,44 @@ function App() {
       <Box>
         <Routes>
           <Route
-            path="/"
+            path="/movie-app/"
             exact
             element={<Main url={`${base_url}${requests.fetchTrending.url}`} />}
           />
           <Route
-            path="/movies"
+            path="/movie-app/movies"
             element={
               <Movies url={`${base_url}${requests.fetchActionMovies.url}`} />
             }
           />
           <Route
-            path="/tv"
+            path="/movie-app/tv"
             element={<Tv url={`${base_url}${requests.fetchTV.url}`} />}
           />
           <Route
-            path="/horror"
+            path="/movie-app/horror"
             element={
               <Horror url={`${base_url}${requests.fetchHorrorMovies.url}`} />
             }
           />
           <Route
-            path="/shows"
+            path="/movie-app/shows"
             element={<TvShow url={tvPopular} isDark={isDark} />}
           />
 
-          <Route path="/movie/:movieId" element={<Movie isDark={isDark} />} />
-          <Route path="/tv/:movieId" element={<Movie isDark={isDark} />} />
-          <Route path="/shows/:showId" element={<Show isDark={isDark} />} />
-          <Route path="/search/:query" element={<Search />} />
+          <Route
+            path="/movie-app/movie/:movieId"
+            element={<Movie isDark={isDark} />}
+          />
+          <Route
+            path="/movie-app/tv/:movieId"
+            element={<Movie isDark={isDark} />}
+          />
+          <Route
+            path="/movie-app/shows/:showId"
+            element={<Show isDark={isDark} />}
+          />
+          <Route path="/movie-app/search/:query" element={<Search />} />
         </Routes>
       </Box>
     </BrowserRouter>

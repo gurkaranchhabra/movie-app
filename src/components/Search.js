@@ -37,8 +37,8 @@ const Search = () => {
               id={item.id}
               href={
                 item.media_type === "movie"
-                  ? `/movie/${item.id}`
-                  : `/shows/${item.id}`
+                  ? `/movie-app/movie/${item.id}`
+                  : `/movie-app/shows/${item.id}`
               }
             />
           ))

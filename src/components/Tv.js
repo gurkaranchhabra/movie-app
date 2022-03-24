@@ -38,7 +38,7 @@ const Tv = ({ url, isDark }) => {
               imageURL={item.poster_path}
               year={item.release_date}
               id={item.id}
-              href={`/tv/${item.id}`}
+              href={`/movie-app/tv/${item.id}`}
             />
           ))
         : ""}

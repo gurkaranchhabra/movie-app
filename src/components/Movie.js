@@ -124,7 +124,7 @@ const Movie = ({ isDark }) => {
                   imageURL={item.poster_path}
                   year={item.release_date}
                   id={item.id}
-                  href={`/movie/${item.id}`}
+                  href={`/movie-app/movie/${item.id}`}
                 />
               ))
             : ""}
