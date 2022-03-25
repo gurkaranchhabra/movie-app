@@ -26,11 +26,10 @@ const Netflix = ({ url, isDark }) => {
       display="flex"
       flexWrap="wrap"
       gap={4}
-      marginTop={12}
       maxW="1400px"
       justifyContent="center"
-      marginLeft={144}
-      marginBottom={16}
+      marginX={144}
+      marginY={16}
     >
       {results != null
         ? results.map((item) => (
@@ -39,7 +38,7 @@ const Netflix = ({ url, isDark }) => {
               imageURL={item.poster_path}
               year={item.release_date}
               id={item.id}
-              href={`/movie-app/movie/${item.id}`}
+              href={`/movie/${item.id}`}
             />
           ))
         : ""}

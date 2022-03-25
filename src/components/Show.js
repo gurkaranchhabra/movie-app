@@ -30,7 +30,7 @@ const Show = ({ isDark }) => {
   }
 
   return (
-    <Box marginBottom={24}>
+    <Box>
       {tvResults != null ? (
         <Box
           bgImage={`url(${imagePath}${tvResults.backdrop_path})`}
@@ -129,25 +129,19 @@ const Show = ({ isDark }) => {
       ) : (
         ""
       )}
-      <Box marginTop={12}>
-        <Text textAlign="center" fontSize="4xl">
+      <Box marginY="30px" marginX="300px">
+        <Text textAlign="center" fontSize="4xl" marginBottom="20px">
           Similar TV Shows:{" "}
         </Text>
-        <Box
-          display="flex"
-          flexWrap="wrap"
-          gap={4}
-          marginLeft={24}
-          marginTop={8}
-        >
+        <Box display="flex" flexWrap="wrap" gap={4}>
           {similarResults != null
             ? similarResults.map((item) => (
                 <Card
-                  title={item.title}
+                  title={item.name}
                   imageURL={item.poster_path}
                   year={item.release_date}
                   id={item.id}
-                  href={`/movie-app/shows/${item.id}`}
+                  href={`/shows/${item.id}`}
                 />
               ))
             : ""}

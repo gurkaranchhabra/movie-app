@@ -25,11 +25,10 @@ const Tv = ({ url, isDark }) => {
       display="flex"
       flexWrap="wrap"
       gap={4}
-      marginTop={12}
       maxW="1400px"
       justifyContent="center"
-      marginLeft={144}
-      marginBottom={16}
+      marginX={144}
+      marginY={16}
     >
       {results != null
         ? results.map((item) => (
@@ -38,7 +37,7 @@ const Tv = ({ url, isDark }) => {
               imageURL={item.poster_path}
               year={item.release_date}
               id={item.id}
-              href={`/movie-app/tv/${item.id}`}
+              href={`/tv/${item.id}`}
             />
           ))
         : ""}

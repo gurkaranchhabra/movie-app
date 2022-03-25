@@ -21,11 +21,10 @@ const TvShow = ({ url, isDark }) => {
       display="flex"
       flexWrap="wrap"
       gap={4}
-      marginTop={12}
       maxW="1400px"
       justifyContent="center"
-      marginLeft={144}
-      marginBottom={16}
+      marginX={144}
+      marginY={16}
     >
       {results != null
         ? results.map((item) => (
@@ -34,7 +33,7 @@ const TvShow = ({ url, isDark }) => {
               imageURL={item.poster_path}
               year={item.release_date}
               id={item.id}
-              href={`/movie-app/shows/${item.id}`}
+              href={`/shows/${item.id}`}
             />
           ))
         : ""}

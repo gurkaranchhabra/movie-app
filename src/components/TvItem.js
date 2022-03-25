@@ -30,7 +30,7 @@ const TvItem = ({ isDark }) => {
   }
 
   return (
-    <Box>
+    <Box marginX={144} marginY={16}>
       {tvResults != null ? (
         <Box
           bgImage={`url(${imagePath}${tvResults.backdrop_path})`}
@@ -113,17 +113,11 @@ const TvItem = ({ isDark }) => {
       ) : (
         ""
       )}
-      <Box marginTop={12}>
+      <Box>
         <Text textAlign="center" fontSize="4xl">
           Similar Movies:{" "}
         </Text>
-        <Box
-          display="flex"
-          flexWrap="wrap"
-          gap={4}
-          marginLeft={24}
-          marginTop={8}
-        >
+        <Box display="flex" flexWrap="wrap" gap={4}>
           {similarResults != null
             ? similarResults.map((item) => (
                 <Card

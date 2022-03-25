@@ -22,16 +22,16 @@ const Navbar = ({ isDark, toggleColorMode }) => {
     if (e.target.value.length > 0) {
       setSearch(e.target.value);
     } else {
-      navigate("/movie-app");
+      navigate("/");
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (search.length > 0) {
-      navigate(`/movie-app/search/${search}`);
+      navigate(`search/${search}`);
     } else {
-      navigate("/movie-app");
+      navigate("/");
     }
   };
 
@@ -54,28 +54,28 @@ const Navbar = ({ isDark, toggleColorMode }) => {
         gap={12}
         alignItems="center"
       >
-        <Link href="/movie-app" _hover={{ border: "" }}>
+        <Link href="/" _hover={{ border: "" }}>
           <Text fontSize="2xl">Movies app</Text>
         </Link>
         <Breadcrumb>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/movie-app">Trending</BreadcrumbLink>
+            <BreadcrumbLink href="/">Trending</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/movie-app/movies">Movies</BreadcrumbLink>
+            <BreadcrumbLink href="/movies">Movies</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/movie-app/shows">TV Shows</BreadcrumbLink>
+            <BreadcrumbLink href="/shows">TV Shows</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/movie-app/horror">Horror</BreadcrumbLink>
+            <BreadcrumbLink href="/horror">Horror</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/movie-app/tv">TV Movies</BreadcrumbLink>
+            <BreadcrumbLink href="/tv">TV Movies</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>

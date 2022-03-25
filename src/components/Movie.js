@@ -22,7 +22,7 @@ const Movie = ({ isDark }) => {
   }, []);
 
   return (
-    <Box marginBottom={24}>
+    <Box>
       {movieResults != null ? (
         <Box
           bgImage={`url(${imagePath}${movieResults.backdrop_path})`}
@@ -45,8 +45,9 @@ const Movie = ({ isDark }) => {
               src={`${imagePath}${movieResults.poster_path}`}
               h="500"
               w="600"
+              marginTop={12}
             />
-            <Box display="flex" flexDir="column" gap={12}>
+            <Box display="flex" flexDir="column" gap={8} marginTop={12}>
               <Text fontSize="4xl" color="white" fontWeight="bold">
                 {movieResults.original_title}
               </Text>
@@ -106,17 +107,11 @@ const Movie = ({ isDark }) => {
       ) : (
         ""
       )}
-      <Box marginTop={12}>
-        <Text textAlign="center" fontSize="4xl">
+      <Box marginY="30px" marginX="300px">
+        <Text textAlign="center" fontSize="4xl" marginBottom="20px">
           Similar Movies:{" "}
         </Text>
-        <Box
-          display="flex"
-          flexWrap="wrap"
-          gap={4}
-          marginLeft={24}
-          marginTop={8}
-        >
+        <Box display="flex" flexWrap="wrap" gap={4}>
           {similarResults != null
             ? similarResults.map((item) => (
                 <Card
@@ -124,7 +119,7 @@ const Movie = ({ isDark }) => {
                   imageURL={item.poster_path}
                   year={item.release_date}
                   id={item.id}
-                  href={`/movie-app/movie/${item.id}`}
+                  href={`/movie/${item.id}`}
                 />
               ))
             : ""}

@@ -30,11 +30,10 @@ const Main = ({ url, isDark }) => {
       display="flex"
       flexWrap="wrap"
       gap={4}
-      marginTop={12}
       maxW="1400px"
       justifyContent="center"
-      marginLeft={144}
-      marginBottom={16}
+      marginX={144}
+      marginY={16}
     >
       {results != null
         ? results.map((item) => (
@@ -45,8 +44,8 @@ const Main = ({ url, isDark }) => {
               id={item.id}
               href={
                 item.media_type === "movie"
-                  ? `/movie-app/movie/${item.id}`
-                  : `/movie-app/shows/${item.id}`
+                  ? `/movie/${item.id}`
+                  : `/shows/${item.id}`
               }
             />
           ))
