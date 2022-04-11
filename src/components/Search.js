@@ -23,10 +23,10 @@ const Search = () => {
       display="flex"
       flexWrap="wrap"
       gap={4}
-      marginTop={12}
+      marginY={12}
       maxW="1400px"
       justifyContent="center"
-      marginLeft={135}
+      marginX={{ base: 0, md: 62, lg: 112, xl: 144 }}
     >
       {results != null
         ? results.map((item) => (

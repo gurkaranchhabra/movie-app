@@ -26,11 +26,10 @@ const Movies = ({ url, isDark }) => {
       display="flex"
       flexWrap="wrap"
       gap={4}
-      marginTop={12}
+      marginY={12}
       maxW="1400px"
       justifyContent="center"
-      marginLeft={144}
-      marginBottom={16}
+      marginX={{ base: 0, md: 62, lg: 112, xl: 144 }}
     >
       {results != null
         ? results.map((item) => (

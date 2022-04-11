@@ -32,7 +32,7 @@ const Main = ({ url, isDark }) => {
       gap={4}
       maxW="1400px"
       justifyContent="center"
-      marginX={144}
+      marginX={{ base: 0, md: 62, lg: 112, xl: 144 }}
       marginY={16}
     >
       {results != null

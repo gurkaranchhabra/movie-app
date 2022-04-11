@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "./Card";
+import SimilarCard from "./SimilarCard";
 
 const Show = ({ isDark }) => {
   const { showId } = useParams();
@@ -30,36 +31,79 @@ const Show = ({ isDark }) => {
   }
 
   return (
-    <Box>
+    <Box
+      display="flex"
+      justifyContent={{
+        base: "center",
+        md: "",
+        lg: "",
+        xl: "",
+      }}
+      flexDir="column"
+      gap={{
+        base: "1000px",
+        md: "350px",
+        lg: "30px",
+        xl: "30px",
+      }}
+    >
       {tvResults != null ? (
         <Box
-          bgImage={`url(${imagePath}${tvResults.backdrop_path})`}
-          h="1000px"
-          w="100%"
+          bgImage={{
+            base: "",
+            md: `url(${imagePath}${tvResults.backdrop_path})`,
+            lg: `url(${imagePath}${tvResults.backdrop_path})`,
+            xl: `url(${imagePath}${tvResults.backdrop_path})`,
+          }}
+          h={{ base: "300px", md: "500px", lg: "1000px", xl: "1000px" }}
+          w={{ base: "300px", md: "80%", lg: "100%", xl: "100%" }}
           rounded="5px"
-          p={24}
+          p={{ base: 8, md: 20, lg: 24, xl: 24 }}
           display="flex"
           justifyContent="center"
+          minW="sm"
         >
           <Box
             display="flex"
-            gap={12}
+            gap={{ base: "", md: 8, lg: 12, xl: 12 }}
             background={isDark ? "rgba(0, 0, 0, 0.6)" : "rgba(0, 0, 0, 0.45)"}
             boxShadow="2xl"
-            p={24}
+            p={{ base: 8, md: 20, lg: 24, xl: 24 }}
             transition="300ms"
+            flexDir={{ base: "column", md: "row", lg: "row", xl: "row" }}
+            minW="sm"
           >
             <Image
               src={`${imagePath}${tvResults.poster_path}`}
-              h="500"
-              w="600"
+              h={{ base: 300, md: 400, lg: 500, xl: 500 }}
+              w={{ base: 200, md: 500, lg: 600, xl: 600 }}
               marginTop={12}
             />
-            <Box display="flex" flexDir="column" gap={8} marginTop={12}>
-              <Text fontSize="4xl" color="white" fontWeight="bold">
+            <Box
+              display="flex"
+              flexDir="column"
+              gap={{ base: 4, md: 6, lg: 8, xl: 8 }}
+              marginTop={12}
+            >
+              <Text
+                fontSize={{ base: "lg", md: "2xl", lg: "4xl", xl: "4xl" }}
+                color={
+                  isDark
+                    ? { base: "white", md: "white", lg: "white", xl: "white" }
+                    : { base: "black", md: "black", lg: "white", xl: "white" }
+                }
+                fontWeight="bold"
+              >
                 {tvResults.name}
               </Text>
-              <Text fontSize="2xl" color="white">
+              <Text
+                fontSize={{ base: "md", md: "xl", lg: "2xl", xl: "2xl" }}
+                color={
+                  isDark
+                    ? { base: "white", md: "white", lg: "white", xl: "white" }
+                    : { base: "black", md: "black", lg: "white", xl: "white" }
+                }
+              >
                 {tvResults.overview}
               </Text>
               <Box
@@ -75,7 +119,7 @@ const Show = ({ isDark }) => {
                         bgColor={isDark ? "default" : "gray.900"}
                         transition="300ms"
                         color="white"
-                        p={4}
+                        p={{ base: 2, md: 3, lg: 4, xl: 4 }}
                       >
                         {item.name}
                       </Tag>
@@ -83,14 +127,25 @@ const Show = ({ isDark }) => {
                   : ""}
               </Box>
               <Box display="flex" gap={4} flexDir="column">
-                <Text fontSize="3xl" color="white">
+                <Text
+                  fontSize={{ base: "lg", md: "xl", lg: "2xl", xl: "2xl" }}
+                  color={
+                    isDark
+                      ? { base: "white", md: "white", lg: "white", xl: "white" }
+                      : { base: "black", md: "black", lg: "white", xl: "white" }
+                  }
+                >
                   Tagline: "{tvResults.tagline}"
                 </Text>
                 <Button
                   onClick={() => window.open(`${tvResults.homepage}`, "_blank")}
                   variant="ghost"
                   w={120}
-                  color="white"
+                  color={
+                    isDark
+                      ? { base: "white", md: "white", lg: "white", xl: "white" }
+                      : { base: "black", md: "black", lg: "white", xl: "white" }
+                  }
                   border="2px solid teal"
                 >
                   Website Link
@@ -98,13 +153,13 @@ const Show = ({ isDark }) => {
                 <Text
                   display="flex"
                   alignItems="center"
-                  gap={4}
-                  fontSize="xl"
+                  gap={2}
+                  fontSize={{ base: "lg", md: "xl", lg: "2xl", xl: "2xl" }}
                   color="white"
                 >
                   Last Air Date:
                   <Text
-                    fontSize="2xl"
+                    fontSize={{ base: "lg", md: "xl", lg: "2xl", xl: "2xl" }}
                     fontWeight="bold"
                     transition="300ms"
                     color="white"
@@ -129,14 +184,18 @@ const Show = ({ isDark }) => {
       ) : (
         ""
       )}
-      <Box marginY="30px" marginX="300px">
-        <Text textAlign="center" fontSize="4xl" marginBottom="20px">
+      <Box marginX={{ base: "100px", md: "100px", lg: "300px", xl: "300px" }}>
+        <Text
+          textAlign="center"
+          fontSize={{ base: "xl", md: "xl", lg: "2xl", xl: "3xl" }}
+          marginBottom="20px"
+        >
           Similar TV Shows:{" "}
         </Text>
         <Box display="flex" flexWrap="wrap" gap={4}>
           {similarResults != null
             ? similarResults.map((item) => (
-                <Card
+                <SimilarCard
                   title={item.name}
                   imageURL={item.poster_path}
                   year={item.release_date}

@@ -45,41 +45,53 @@ const Navbar = ({ isDark, toggleColorMode }) => {
       justifyContent="space-between"
       alignItems="center"
       flexDir="row"
-      padding={8}
-      paddingX={8}
+      padding={{ base: 4, md: 8, lg: 8, xl: 8 }}
+      paddingX={{ base: 4, md: 8, lg: 8, xl: 8 }}
     >
       <Box
         display="flex"
         justifyContent="space-evenly"
-        gap={12}
+        gap={{ base: 8, md: 8, lg: 12, xl: 12 }}
         alignItems="center"
       >
-        <Link href="/" _hover={{ border: "" }}>
-          <Text fontSize="2xl">Movies app</Text>
+        <Link onClick={() => navigate("/")} _hover={{ border: "" }}>
+          <Text fontSize={{ base: "md", md: "md", lg: "xl", xl: "2xl" }}>
+            Movies app
+          </Text>
         </Link>
-        <Breadcrumb>
+        <Breadcrumb fontSize={{ base: "10px", md: "md", lg: "lg", xl: "lg" }}>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Trending</BreadcrumbLink>
+            <BreadcrumbLink onClick={() => navigate("/")}>
+              Trending
+            </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/movies">Movies</BreadcrumbLink>
+            <BreadcrumbLink onClick={() => navigate("/movies")}>
+              Movies
+            </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/shows">TV Shows</BreadcrumbLink>
+            <BreadcrumbLink onClick={() => navigate("/shows")}>
+              TV Shows
+            </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/horror">Horror</BreadcrumbLink>
+            <BreadcrumbLink onClick={() => navigate("/horror")}>
+              Horror
+            </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/tv">TV Movies</BreadcrumbLink>
+            <BreadcrumbLink onClick={() => navigate("/tv")}>
+              TV Movies
+            </BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>
-      <Box display="flex" alignItems="center" gap={6}>
+      <Box display="flex" alignItems="center" gap={[2, 4, 5, 6]}>
         <form
           onSubmit={handleSubmit}
           style={{ display: "flex", alignItems: "center", gap: 8 }}
@@ -89,8 +101,13 @@ const Navbar = ({ isDark, toggleColorMode }) => {
             border="1px solid black"
             color={isDark ? "white" : "black"}
             onChange={(e) => handleChange(e)}
+            fontSize={{ base: "10px", md: "lg", lg: "lg", xl: "lg" }}
           />
-          <Button variant="outline" type="submit">
+          <Button
+            variant="outline"
+            type="submit"
+            fontSize={{ base: "10px", md: "md", lg: "lg", xl: "lg" }}
+          >
             Search
           </Button>
         </form>

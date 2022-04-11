@@ -1,14 +1,21 @@
 import { Box, Image, Text } from "@chakra-ui/react";
-//import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import Movie from "./Movie";
 
-const Card = ({ title, imageURL, year, description, duration, id, href }) => {
+const SimilarCard = ({
+  title,
+  imageURL,
+  year,
+  description,
+  duration,
+  id,
+  href,
+}) => {
   let imagePath = `https://image.tmdb.org/t/p/w500`;
   let navigate = useNavigate();
 
   const handleClick = () => {
     navigate(href);
+    navigate(0);
   };
 
   return (
@@ -35,4 +42,4 @@ const Card = ({ title, imageURL, year, description, duration, id, href }) => {
   );
 };
 
-export default Card;
+export default SimilarCard;
